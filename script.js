@@ -38,23 +38,23 @@ function getNaipe(naipe) {
   deckList.replaceChildren(...newList);
 }
 
+function shuffleDeck() {
+
+  const shuffledDeck = createDeck().sort(() => Math.random() - 0.9);
+  const newList = createNode(shuffledDeck);
+  deckList.replaceChildren(...newList);
+}
+
 const copasButton = document.querySelector('#copas-button');
+const espadasButton = document.querySelector('#espadas-button');
+const ourosButton = document.querySelector('#ouros-button');
+const pausButton = document.querySelector('#paus-button');
+const resetButton = document.querySelector('#reset-button');
+const shuffleButton = document.querySelector('#shuffle-button');
 
 copasButton.addEventListener('click', () =>{ getNaipe("copas") });
-
-const espadasButton = document.querySelector('#espadas-button');
-
 espadasButton.addEventListener('click', () =>{ getNaipe("espadas") })
-
-const ourosButton = document.querySelector('#ouros-button');
-
 ourosButton.addEventListener('click', () =>{ getNaipe("ouros") });
-
-const pausButton = document.querySelector('#paus-button');
-
 pausButton.addEventListener('click', () =>{ getNaipe("paus") });
-
-const resetButton = document.querySelector('#reset-button');
-
 resetButton.addEventListener('click', () =>{ deckList.replaceChildren(...list) });
-
+shuffleButton.addEventListener('click', () => { shuffleDeck() });

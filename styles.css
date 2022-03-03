@@ -9,6 +9,10 @@ button {
   background-color: #ffd6d6;
 }
 
+#shuffle-button {
+  background-color: #d6e9ff;
+}
+
 #deck {
   display: grid;
   grid-template-rows: repeat(13, 1fr);
