@@ -1,0 +1,14 @@
+#deck {
+  display: grid;
+  grid-template-rows: repeat(13, 1fr);
+  grid-gap: 5px;
+  grid-auto-flow: column;
+}
+
+.card {
+  border: 1px solid;
+  padding: 5px;
+  margin-bottom: 5px;
+  max-width: 100px;
+  height: 100px;
+}
