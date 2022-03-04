@@ -1,14 +1,26 @@
+button {
+  width: 100px;
+  height: 50px;
+  margin: 0 5px 10px 0;
+  border-radius: 10px;
+}
+
+#reset-button {
+  background-color: #ffd6d6;
+}
+
 #deck {
   display: grid;
   grid-template-rows: repeat(13, 1fr);
   grid-gap: 5px;
   grid-auto-flow: column;
+  max-width: 560px;
 }
 
 .card {
   border: 1px solid;
   padding: 5px;
-  margin-bottom: 5px;
-  max-width: 100px;
+  width: 100px;
   height: 100px;
 }
+

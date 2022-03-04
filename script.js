@@ -53,3 +53,8 @@ ourosButton.addEventListener('click', () =>{ getNaipe("ouros") });
 const pausButton = document.querySelector('#paus-button');
 
 pausButton.addEventListener('click', () =>{ getNaipe("paus") });
+
+const resetButton = document.querySelector('#reset-button');
+
+resetButton.addEventListener('click', () =>{ deckList.replaceChildren(...list) });
+
