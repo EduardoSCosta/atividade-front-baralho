@@ -19,7 +19,7 @@ function createNode(cards) {
   return cards.map(function (card) {
     const cardEl = document.createElement("div");
     cardEl.classList.add("card");
-    cardEl.textContent = card.cardValue + " of " + card.cardSuit;
+    cardEl.textContent = `${card.cardValue} of ${card.cardSuit}`;
 
     return cardEl;
   });
