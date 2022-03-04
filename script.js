@@ -18,7 +18,7 @@ let deck = createDeck();
 function createNode(cards) {
   return cards.map(function (card) {
     const cardEl = document.createElement("div");
-    cardEl.classList.add("card");
+    cardEl.classList.add("card", `card--${card.cardSuit}`);
     cardEl.textContent = `${card.cardValue} of ${card.cardSuit}`;
 
     return cardEl;
