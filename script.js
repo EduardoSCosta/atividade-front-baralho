@@ -1,27 +1,13 @@
-const naipes = ["copas", "espadas", "ouros", "paus"];
-const cartas = [
-  "A",
-  "2",
-  "3",
-  "4",
-  "5",
-  "6",
-  "7",
-  "8",
-  "9",
-  "10",
-  "J",
-  "Q",
-  "K",
-];
+const cardSuits = ["hearts", "spades", "diamonds", "clubs"];
+const cardValues = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
 
 const deckList = document.querySelector("#deck");
 
 function createDeck() {
   const deck = [];
-  naipes.forEach(function (naipe) {
-    cartas.forEach(function (carta) {
-      deck.push({ naipe: naipe, carta: carta });
+  cardSuits.forEach(function (cardSuit) {
+    cardValues.forEach(function (cardValue) {
+      deck.push({ cardSuit: cardSuit, cardValue: cardValue });
     });
   });
   return deck;
@@ -33,7 +19,7 @@ function createNode(cards) {
   return cards.map(function (card) {
     const cardEl = document.createElement("div");
     cardEl.classList.add("card");
-    cardEl.textContent = card.carta + " de " + card.naipe;
+    cardEl.textContent = card.cardValue + " of " + card.cardSuit;
 
     return cardEl;
   });
@@ -50,12 +36,12 @@ function updateNode(cards) {
   deckList.replaceChildren(...newCardsNodes);
 }
 
-function getNaipe(naipe, deck) {
-  const onlyNaipe = deck.filter(function (carta) {
-    return carta.naipe === naipe;
+function getCardSuit(cardSuit, deck) {
+  const onlyCardSuit = deck.filter(function (cardValue) {
+    return cardValue.cardSuit === cardSuit;
   });
 
-  return onlyNaipe;
+  return onlyCardSuit;
 }
 
 function resetDeck() {
@@ -64,28 +50,28 @@ function resetDeck() {
 }
 
 function shuffleDeck(deck) {
-  const shuffledDeck = deck.sort(() => Math.random() - 0.9);
+  const shuffledDeck = deck.sort(() => Math.random() - 0.5);
   return shuffledDeck;
 }
 
-const copasButton = document.querySelector("#copas-button");
-const espadasButton = document.querySelector("#espadas-button");
-const ourosButton = document.querySelector("#ouros-button");
-const pausButton = document.querySelector("#paus-button");
+const heartsButton = document.querySelector("#hearts-button");
+const spadesButton = document.querySelector("#spades-button");
+const diamondsButton = document.querySelector("#diamonds-button");
+const clubsButton = document.querySelector("#clubs-button");
 const resetButton = document.querySelector("#reset-button");
 const shuffleButton = document.querySelector("#shuffle-button");
 
-copasButton.addEventListener("click", () => {
-  updateNode(getNaipe("copas", deck));
+heartsButton.addEventListener("click", () => {
+  updateNode(getCardSuit("hearts", deck));
 });
-espadasButton.addEventListener("click", () => {
-  updateNode(getNaipe("espadas", deck));
+spadesButton.addEventListener("click", () => {
+  updateNode(getCardSuit("spades", deck));
 });
-ourosButton.addEventListener("click", () => {
-  updateNode(getNaipe("ouros", deck));
+diamondsButton.addEventListener("click", () => {
+  updateNode(getCardSuit("diamonds", deck));
 });
-pausButton.addEventListener("click", () => {
-  updateNode(getNaipe("paus", deck));
+clubsButton.addEventListener("click", () => {
+  updateNode(getCardSuit("clubs", deck));
 });
 resetButton.addEventListener("click", () => {
   updateNode(resetDeck());
